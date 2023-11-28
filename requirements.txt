@@ -1,0 +1,2 @@
+librosa==0.10.1
+pandas=2.1.3
