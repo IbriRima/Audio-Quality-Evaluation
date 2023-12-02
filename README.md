@@ -19,3 +19,4 @@ pip -r requirements.txt
 
 ```
 ## Database
+MongoDB has robust support for storing binary data, which makes it suitable for storing audio files. Using the BSON data type "Binary" I was able to store audio file content directly within MongoDB.
