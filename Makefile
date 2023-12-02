@@ -1,17 +1,10 @@
-# Specify the default target
-all: run
+# Specify the target to run the main script with "mp3" to dowload mp3 as default action
+run:
+	python main.py mp3
 
-# Specify the target to run the main script
-run: script.py
-	python script.py
-
-# Specify a target to clean up generated files
-clean:
-	rm -f *.pyc
-
-# Specify a target to run tests
-test:
-	python -m unittest discover tests
+# Specify a target to run the main script with the "audio_viz" action
+audio_viz:
+	python main.py audio_viz
 
 # Specify a target to install dependencies
 install:
