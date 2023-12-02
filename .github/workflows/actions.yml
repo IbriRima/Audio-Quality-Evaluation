@@ -1,9 +1,6 @@
 name: run main.py
 
-on:
-  schedule:
-    - cron: '*/5 * * * *' # At 00:00 on Monday
-
+on: [push,pull_request]
 jobs:
     build_mp3:
         runs-on: ubuntu-latest
