@@ -1,0 +1,68 @@
+name: run main.py
+
+on: [push,pull_request]
+jobs:
+    build_mp3:
+        runs-on: ubuntu-latest
+        steps:
+            - name: checkout repo content
+              uses: actions/checkout@v2
+            - name: Setup Node.js
+              uses: actions/setup-node@v3
+              with:
+                node-version: '16' 
+            - name: setup python
+              uses: actions/setup-python@v4
+              with:
+                python-version: '3.9'
+            - name: install python packages
+              run: |
+                python -m pip install --upgrade pip
+                pip install -r requirements.txt
+            - name: execute py script mp3
+              env:
+                SOME_SECRET: ${{ secrets.SOME_SECRET }}
+              run: python main.py mp3
+      
+    build_audio_viz:
+        runs-on: ubuntu-latest
+        steps:
+            - name: checkout repo content
+              uses: actions/checkout@v2
+            - name: setup python
+              uses: actions/setup-python@v4
+              with:
+                python-version: '3.9'
+            - name: install python packages
+              run: |
+                python -m pip install --upgrade pip
+                pip install -r requirements.txt
+            - name: execute py script audio_viz
+              env:
+                SOME_SECRET: ${{ secrets.SOME_SECRET }}
+              run: python main.py audio_viz
+      
+    build_save_data:
+        runs-on: ubuntu-latest
+        strategy:
+          matrix:
+            mongodb-version: ['4.2', '4.4', '5.0', '6.0']
+        steps:
+            - name: checkout repo content
+              uses: actions/checkout@v2
+            - name: setup python
+              uses: actions/setup-python@v4
+              with:
+                python-version: '3.9'
+            - name: install python packages
+              run: |
+                python -m pip install --upgrade pip
+                pip install -r requirements.txt
+            - name: Start MongoDB
+              uses: supercharge/mongodb-github-action@1.10.0
+              with:
+                mongodb-version: ${{ matrix.mongodb-version }}
+            - name: execute py script save_data
+              env:
+                SOME_SECRET: ${{ secrets.SOME_SECRET }}
+              run: python main.py save_data    

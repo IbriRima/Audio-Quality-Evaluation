@@ -12,6 +12,41 @@ import glob
 import argparse
 from pymongo import MongoClient
 from bson.binary import Binary
+import logging
+import logging.handlers
+
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
+logger_file_handler = logging.handlers.RotatingFileHandler(
+    "status.log",
+    maxBytes=1024 * 1024,
+    backupCount=1,
+    encoding="utf8",
+)
+formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+logger_file_handler.setFormatter(formatter)
+logger.addHandler(logger_file_handler)
+
+try:
+    SOME_SECRET = os.environ["SOME_SECRET"]
+except KeyError:
+    SOME_SECRET = "Token not available!"
+
+
+mongo_host = 'localhost'
+mongo_port = 27017
+mongo_db = 'records'
+
+
+# Create a MongoDB client
+client = MongoClient(
+    host=mongo_host,
+    port=mongo_port,
+
+)
+
+
 
 def json_data(json_file_path):
     if not os.path.exists(json_file_path):
@@ -169,8 +204,8 @@ def estimate_audio_quality(file_path):
 
 def data_storage(data):
     # Connect to MongoDB
-    client = MongoClient('localhost', 27017)
-    db = client['records']
+
+    db = client[mongo_db]
     metadata_collection = db['audios']
 
     # Read and insert each audio file in the DataFrame with it's metadata
