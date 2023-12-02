@@ -65,5 +65,4 @@ jobs:
             - name: execute py script save_data
               env:
                 SOME_SECRET: ${{ secrets.SOME_SECRET }}
-                MONGODB_URI : ${{ secrets.MONGODB_URI }}
               run: python main.py save_data    
