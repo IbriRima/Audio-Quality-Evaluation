@@ -5,7 +5,7 @@ This Python program is designed to crawl speech data from the [Freesound](https:
 
 ## Table of Contents
 
-- [Introduction](#introduction
+- [Introduction](#introduction)
 - [Requirements](#requirements)
 - [Database](#database)
 
