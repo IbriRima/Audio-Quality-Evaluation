@@ -4,10 +4,10 @@ on:
   schedule:
     - cron: '*/5 * * * *' # At 00:00 on Monday
 
-    jobs:
-        build_mp3:
-          runs-on: ubuntu-latest
-          steps:
+jobs:
+    build_mp3:
+        runs-on: ubuntu-latest
+        steps:
             - name: checkout repo content
               uses: actions/checkout@v2
             - name: setup python
@@ -23,9 +23,9 @@ on:
                 SOME_SECRET: ${{ secrets.SOME_SECRET }}
               run: python main.py mp3
       
-        build_audio_viz:
-          runs-on: ubuntu-latest
-          steps:
+    build_audio_viz:
+        runs-on: ubuntu-latest
+        steps:
             - name: checkout repo content
               uses: actions/checkout@v2
             - name: setup python
@@ -41,9 +41,9 @@ on:
                 SOME_SECRET: ${{ secrets.SOME_SECRET }}
               run: python main.py audio_viz
       
-        build_save_data:
-          runs-on: ubuntu-latest
-          steps:
+    build_save_data:
+        runs-on: ubuntu-latest
+        steps:
             - name: checkout repo content
               uses: actions/checkout@v2
             - name: setup python
@@ -57,4 +57,4 @@ on:
             - name: execute py script save_data
               env:
                 SOME_SECRET: ${{ secrets.SOME_SECRET }}
-              run: python main.py save_data
+              run: python main.py save_data    
