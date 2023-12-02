@@ -1,4 +1,3 @@
-# Data-Engineering-Working-Student-Position
 # Speech Data Crawler and Classification
 
 This Python program is designed to crawl speech data from the [Freesound](https://freesound.org/charts/) website, save them in a MongoDB database, and subsequently classify all speech audio files by speech quality using Kmeans clustering.
