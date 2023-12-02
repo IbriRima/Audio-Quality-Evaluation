@@ -34,6 +34,17 @@ except KeyError:
     SOME_SECRET = "Token not available!"
 
 
+mongo_host = 'localhost'
+mongo_port = 27017
+mongo_db = 'records'
+
+
+# Create a MongoDB client
+client = MongoClient(
+    host=mongo_host,
+    port=mongo_port,
+
+)
 
 
 
@@ -193,8 +204,8 @@ def estimate_audio_quality(file_path):
 
 def data_storage(data):
     # Connect to MongoDB
-    client = MongoClient('localhost', 27017)
-    db = client['records']
+
+    db = client[mongo_db]
     metadata_collection = db['audios']
 
     # Read and insert each audio file in the DataFrame with it's metadata
