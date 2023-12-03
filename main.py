@@ -251,13 +251,14 @@ def data_storage(data):
         
         # Create a document with metadata and binary data
         record_document = {
-            'filename': row['record'],
-            'speech_level': row['speech_level'],
-            'snr': row['snr'],
-            'rms_noise': row['rms_noise'],
-            'sample_rate': row['sample_rate'],
-            'dynamic_range_db': row['dynamic_range_db'],
-            'audio_data': audio_binary
+        'filename': row['record'],
+        'speech_level': row['speech_level'],
+        'rms_audio':row['rms_audio'],
+        'rms_noise': row['rms_noise'],
+        'snr': row['snr'],
+        'sample_rate': row['sample_rate'],
+        'dynamic_range_db': row['dynamic_range_db'],
+        'audio_data': audio_binary
         }
 
         # Insert the document into the MongoDB collection
@@ -358,19 +359,19 @@ if __name__ == "__main__":
     elif args.action== "save_data":
         logger.info("Inserting records into MongoDB database")
         data=create_dataframe('./records.csv','./mp3_records/')
-        data=pd.read_csv('./data/records.csv')
+        data=pd.read_csv('./data/audios.csv')
         data_storage(data)
 
     elif args.action== "elbow_method":
         logger.info("Inserting records into MongoDB database")
-        data=pd.read_csv('./data/records.csv')
+        data=pd.read_csv('./data/audios.csv')
         data_clustering=data[['rms_noise','speech_level','dynamic_range_db']]
         elbow_method(data_clustering,max_iter=15,n_init="auto")
 
     elif args.action == "audios_classification" and args.features:
         logger.info("Classifying audios based on their quality")
         features_to_use = args.features
-        data = pd.read_csv('./data/records.csv')
+        data = pd.read_csv('./data/audios.csv')
 
         # Check if specified features exist in the dataset
         invalid_features = [feature for feature in features_to_use if feature not in data.columns]
