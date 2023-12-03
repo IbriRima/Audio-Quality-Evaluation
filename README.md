@@ -7,6 +7,7 @@ This Python program is designed to crawl speech data from the [Freesound](https:
 - [Introduction](#introduction)
 - [Requirements](#requirements)
 - [Database](#database)
+- [Application features](#App features)
 
 
 ## Introduction
@@ -40,5 +41,5 @@ python main.py mp3
 python main.py audio_visualization
 ```
 This enable visualization of the raw audio waveform and its trimmed version and saves each of them in the folder plots
-- Elbow methof: To be sure that our data can really be clustered into two group so we can use this for classification into good or bad quality videos we will be usinf elbow method to visualize optimal clusters number and save the plot in the plots folder
+- Elbow method: To be sure that our data can really be clustered into two group so we can use this for classification into good or bad quality videos we will be usinf elbow method to visualize optimal clusters number and save the plot in the plots folder
 
