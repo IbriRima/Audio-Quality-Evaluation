@@ -20,7 +20,15 @@ pip -r requirements.txt
 ```
 ## Database
 MongoDB has robust support for storing binary data, which makes it suitable for storing audio files. Using the BSON data type "Binary" I was able to store audio file content directly within MongoDB next to the audio metadata.
-
+- filename: record name
+- speech_level: The speech level is calculated based on the spectral centroid of an audio signal
+- rms_audio: Root Mean Square of Audio and it measure the average power of a varying signal. It is a more stable indicator than the peak amplitude, as it considers the entire waveform over a period of time.
+- rms_noise: Root Mean Square of Noise. The function estimate_noise takes the original audio signal and subtracts the estimated speech component from it to obtain the noise. The rms_noise is then calculated for this noise signal using the RMS formula.
+- snr: Signal-to-Noise Ratio is a measure used to quantify the level of a desired signal relative to the level of background noise.,
+- sample_rate: sample rate refers to the number of samples of audio carried per second. A higher sample rate means more samples are taken per second, providing a more accurate representation of the original analog signal. 
+- dynamic_range_db: a measure of the span between the quietest and loudest parts of an audio signal,
+- audio_data: audio in binary format
+  
 ## App features
 - Download mp3 files: You should start by downloading mp3 files from the crawled urls
 ```
@@ -30,9 +38,8 @@ python main.py mp3
 - Audio visualizations: To be able to get better visualization of the audios you should use
 ```
 python main.py audio_visualization
-``` 
-- [Database](#database)
+```
+This enable visualization of the raw audio waveform and its trimmed version and saves each of them in the folder plots
 
-
-## Download mp3 files
+- 
 
