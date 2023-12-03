@@ -7,7 +7,7 @@ This Python program is designed to crawl speech data from the [Freesound](https:
 - [Introduction](#introduction)
 - [Requirements](#requirements)
 - [Database](#database)
-- [Application features](#Appfeatures)
+- [Application features](#App_features)
 
 
 ## Introduction
@@ -30,7 +30,7 @@ MongoDB has robust support for storing binary data, which makes it suitable for 
 - dynamic_range_db: a measure of the span between the quietest and loudest parts of an audio signal,
 - audio_data: audio in binary format
   
-## App features
+## App_features
 - Download mp3 files: You should start by downloading mp3 files from the crawled urls
 ```
 python main.py mp3
