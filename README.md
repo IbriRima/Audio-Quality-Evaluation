@@ -55,7 +55,7 @@ python main.py save_data
 - Audio classification based on their quality: Through the clustering we were able to label the dataset to good quality audios or bad quality audios and to do this you should use:
 
 ```
-python main.py audios_classification
+ python main.py audios_classification --features rms_noise speech
 
 ```
-
+keeping in mind that after --features you can choose what features to use for the clustering
