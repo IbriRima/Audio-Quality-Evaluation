@@ -354,11 +354,10 @@ if __name__ == "__main__":
         logger.info("Performing audio visualizations")
         display_audio (mp3_folder,save_folder='./plots')
 
-    elif args.action=="create_dataframe":
-        data=create_dataframe(mp3_directory='./mp3_readdcords/')
 
     elif args.action== "save_data":
         logger.info("Inserting records into MongoDB database")
+        data=create_dataframe(mp3_directory='./mp3_readdcords/')
         data=pd.read_csv('./records.csv')
         data_storage(data)
 
