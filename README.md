@@ -43,3 +43,9 @@ python main.py audio_visualization
 This enable visualization of the raw audio waveform and its trimmed version and saves each of them in the folder plots
 - Elbow method: To be sure that our data can really be clustered into two group so we can use this for classification into good or bad quality videos we will be usinf elbow method to visualize optimal clusters number and save the plot in the plots folder
 
+- Data Saving: This will enable the saving of the audio and its metadata in the MongoDB database. Yu can use this through:
+```
+python main.py save_data
+
+``` 
+
