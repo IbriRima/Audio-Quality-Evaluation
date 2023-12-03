@@ -357,7 +357,7 @@ if __name__ == "__main__":
 
     elif args.action== "save_data":
         logger.info("Inserting records into MongoDB database")
-        data=create_dataframe(mp3_directory='./mp3_readdcords/')
+        data=create_dataframe('records.csv','./mp3_readdcords/')
         data=pd.read_csv('./records.csv')
         data_storage(data)
 
