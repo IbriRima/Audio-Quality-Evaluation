@@ -304,6 +304,8 @@ def clustering(data,max_iter,n_init,n_clusters=2):
     # Display the plot
     plt.show()
 
+    data.to_csv('./data/classified_audio.csv',index=False)
+
     return data
     
 
