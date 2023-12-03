@@ -58,4 +58,5 @@ python main.py save_data
  python main.py audios_classification --features rms_noise speech
 
 ```
-keeping in mind that after --features you can choose what features to use for the clustering
+Keep in mind that after --features you can choose what features to use for the clustering.
+The final data with labels will be saved under the data folder as classified_audio_.csv
