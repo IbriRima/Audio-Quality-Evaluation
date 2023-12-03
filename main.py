@@ -357,7 +357,7 @@ if __name__ == "__main__":
 
     elif args.action== "save_data":
         logger.info("Inserting records into MongoDB database")
-        data=create_dataframe('records.csv','./mp3_readdcords/')
+        data=create_dataframe('records.csv','./mp3_records/')
         data=pd.read_csv('./records.csv')
         data_storage(data)
 
@@ -380,7 +380,6 @@ if __name__ == "__main__":
             data_cluster = data[features_to_use]
             data_labeled = clustering(data_cluster, max_iter=15, n_init='auto', n_clusters=2)
             data_labeled.to_csv('Classified_audio.csv', index=False)
-
 
 
     else:
