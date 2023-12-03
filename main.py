@@ -365,7 +365,7 @@ if __name__ == "__main__":
         logger.info("Inserting records into MongoDB database")
         data=pd.read_csv('./data/records.csv')
         data_clustering=data[['rms_noise','speech_level','dynamic_range_db']]
-        elbow_method(data_clustering)
+        elbow_method(data_clustering,max_iter=15,n_init="auto")
 
     elif args.action == "audios_classification" and args.features:
         logger.info("Classifying audios based on their quality")
